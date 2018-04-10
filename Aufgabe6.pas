@@ -28,7 +28,7 @@ begin
       end;
   //__Transponieren_A  (funktional)
 
-  {begin
+  begin
   for i := 1 to GROESSE-1 do
     for j := i+1 to GROESSE do
     begin
@@ -36,11 +36,11 @@ begin
       A[i,j] := A[j,i];
       A[j,i] := tauschPuffer
     end
-  end;}
+  end;
 
   //__Transponieren_B    (funktional)
 
-  begin
+  {begin
   for i := 1 to GROESSE do
     for j := 1 to i do
     begin
@@ -48,9 +48,9 @@ begin
       A[i,j] := A[j,i];
       A[j,i] := tauschPuffer
     end
-  end;
+  end; }
 
-  //__Transponieren_C   (nicht funktional)
+  //__Transponieren_C   (nicht funktional, "tauscht" doppelt, also z.B. [4,2] zu [2,4] zu [4,2])
 
   {begin
   for i := 1 to GROESSE do
@@ -62,7 +62,7 @@ begin
     end
   end;}
 
-  //__Transponieren_D    (nicht funktional)
+  //__Transponieren_D    (nicht funktional, tauscht partiell ("links oben") doppelt, Rest gar nicht)
 
   {begin
   for i := 1 to GROESSE do
@@ -74,7 +74,8 @@ begin
     end
   end; }
 
-  //__Transponieren_E     (nicht funktional)
+  //__Transponieren_E     (nicht funktional, tendenziell richtige Aufteilung der Matrix, tauscht
+  // aber durch Syntax nicht aus, sondern überschreibt sinnlos ->"spiegelt an Diagonale")
 
   {begin
   for i := 1 to GROESSE-1 do
@@ -84,7 +85,7 @@ begin
       A[j,i] := A[i,j];
       A[j,i] := tauschPuffer
     end
-  end; }
+  end;  }
 
     //___AUSGABE_2___
    writeln('Transponierte Matrix:');
